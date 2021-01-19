@@ -16,13 +16,18 @@ const Navigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen
+          options={{
+            headerShown:false
+          }}
+          name="Welcome"
+          component={WelcomeScreen}
+        />
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
 
 const styles = StyleSheet.create({});
 
