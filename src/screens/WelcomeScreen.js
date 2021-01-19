@@ -6,9 +6,10 @@ import {
   ImageBackground,
   Dimensions,
 } from "react-native";
+import colors from "../assets/colors/colors";
+import ClassicButton from "../components/ClassicButton";
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
-console.log(Height);
 
 const WelcomeScreen = ({ navigation }) => {
   return (
@@ -24,6 +25,21 @@ const WelcomeScreen = ({ navigation }) => {
             <Text style={styles.headertext2}>Silent Moon'a Hoşgeldin</Text>
           </View>
         </View>
+        <View style={styles.body}>
+          <View style={styles.bodywrapper}>
+            <Text style={styles.bodytext}>
+              Uygulamayı keşfedin, meditasyona hazırlanmak için biraz huzur
+              bulun.
+            </Text>
+          </View>
+        </View>
+        <View style={styles.btn}>
+          <ClassicButton
+            onPress={() => navigation.navigate("Home")}
+            title={"HADİ BAŞLAYALIM"}
+            bg={colors.light}
+          />
+        </View>
       </ImageBackground>
     </View>
   );
@@ -36,7 +52,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: "#8E97FD",
+    backgroundColor: colors.light_blue,
   },
   headercontainer: {
     width: Width,
@@ -50,15 +66,36 @@ const styles = StyleSheet.create({
   },
   headertext: {
     color: "#fff",
-    fontSize: 33,
+    fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
   },
   headertext2: {
     color: "#fff",
-    fontSize: 22,
+    fontSize: 30,
     textAlign: "center",
     fontWeight: "400",
+  },
+  body: {
+    width: Width,
+    height: Height * 0.2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  bodywrapper: {
+    width: Width * 0.5,
+  },
+  bodytext: {
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 17,
+    fontWeight: "300",
+  },
+  btn: {
+    height: Height * 0.5,
+    // backgroundColor: "red",
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
 });
 

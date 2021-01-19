@@ -7,7 +7,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Navigator />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 };
