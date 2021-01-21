@@ -2,15 +2,28 @@ import React from "react";
 import {
   StyleSheet,
   Text,
-  View,
+  ActivityIndicator,
   Dimensions,
   TouchableOpacity,
 } from "react-native";
+import {
+  useFonts,
+  Montserrat_700Bold,
+  Montserrat_600SemiBold,
+  Montserrat_800ExtraBold,
+} from "@expo-google-fonts/montserrat";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
-console.log(Height);
 const ClassicButton = ({ bg, title, onPress }) => {
+  let [fontsLoaded] = useFonts({
+    Montserrat_700Bold,
+    Montserrat_600SemiBold,
+    Montserrat_800ExtraBold,
+  });
+  if (!fontsLoaded) {
+    return <ActivityIndicator />;
+  } 
   return (
     <>
       <TouchableOpacity
@@ -33,9 +46,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontWeight: "bold",
+    // fontWeight: "bold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 16,
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
 });
 

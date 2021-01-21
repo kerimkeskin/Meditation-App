@@ -9,26 +9,36 @@ import {
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Stack = createStackNavigator();
+const WelcomeStack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+
+const StackNav = () => {
+  return (
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const Navigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
-        <Stack.Screen
-          options={{
-            headerShown:false
-          }}
-          name="Welcome"
-          component={WelcomeScreen}
-        />
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={StackNav} />
+      
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Navigator;

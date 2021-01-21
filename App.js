@@ -1,12 +1,18 @@
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Navigator from "./src/navigation/Navigator";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
 
 const App = () => {
+  const [home, sethome] = useState(true);
   return (
     <View style={styles.container}>
-      <Navigator />
+      {home ? (
+        <WelcomeScreen onPress={() => sethome(false)} />
+      ) : (
+        <Navigator />
+      )}
       <StatusBar style="light" />
     </View>
   );

@@ -5,13 +5,29 @@ import {
   View,
   ImageBackground,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
 import colors from "../assets/colors/colors";
 import ClassicButton from "../components/ClassicButton";
+import {
+  useFonts,
+  Montserrat_700Bold,
+  Montserrat_600SemiBold,
+  Montserrat_800ExtraBold,
+} from "@expo-google-fonts/montserrat";
+
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = ({ onPress }) => {
+  let [fontsLoaded] = useFonts({
+    Montserrat_700Bold,
+    Montserrat_600SemiBold,
+    Montserrat_800ExtraBold,
+  });
+  if (!fontsLoaded) {
+    return <ActivityIndicator />;
+  }
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -35,7 +51,7 @@ const WelcomeScreen = ({ navigation }) => {
         </View>
         <View style={styles.btn}>
           <ClassicButton
-            onPress={() => navigation.navigate("Home")}
+            onPress={onPress}
             title={"HADİ BAŞLAYALIM"}
             bg={colors.light}
           />
@@ -67,14 +83,14 @@ const styles = StyleSheet.create({
   headertext: {
     color: "#fff",
     fontSize: 30,
-    fontWeight: "bold",
+    fontFamily: "Montserrat_800ExtraBold",
     textAlign: "center",
   },
   headertext2: {
     color: "#fff",
-    fontSize: 30,
+    fontSize: 27,
     textAlign: "center",
-    fontWeight: "400",
+    fontFamily: "Montserrat_700Bold",
   },
   body: {
     width: Width,
@@ -88,15 +104,18 @@ const styles = StyleSheet.create({
   bodytext: {
     color: "#fff",
     textAlign: "center",
-    fontSize: 17,
-    fontWeight: "300",
+    fontSize: 15,
+    // fontWeight: "300",
+    fontFamily: "Montserrat_600SemiBold",
   },
   btn: {
     height: Height * 0.5,
-    // backgroundColor: "red",
     justifyContent: "flex-end",
     alignItems: "center",
   },
 });
 
+// Montserrat_700Bold,
+// Montserrat_600SemiBold,
+// Montserrat_800ExtraBold,
 export default WelcomeScreen;
