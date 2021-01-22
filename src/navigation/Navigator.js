@@ -8,7 +8,7 @@ import {
   MeditateScreen,
   ProfileScreen,
 } from "../screens";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions,ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -18,6 +18,16 @@ import {
   FontAwesome5,
 } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
+import {
+  useFonts,
+  Montserrat_700Bold,
+  Montserrat_600SemiBold,
+  Montserrat_800ExtraBold,
+} from "@expo-google-fonts/montserrat";
+
+
+const Height = Dimensions.get("window").height;
+const Width = Dimensions.get("window").width;
 
 const Stack = createStackNavigator();
 const Meditate = createStackNavigator();
@@ -93,12 +103,20 @@ const ProfileTab = () => {
 };
 
 const Navigator = () => {
+  let [fontsLoaded] = useFonts({
+    Montserrat_700Bold,
+    Montserrat_600SemiBold,
+    Montserrat_800ExtraBold,
+  });
+  if (!fontsLoaded) {
+    return <ActivityIndicator />;
+  }
   return (
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
+          labelPosition: "below-icon",
           activeTintColor: "#fff",
-          activeBackgroundColor: () => "yellow",
           tabStyle: { width: "100%" },
           style: {
             backgroundColor: colors.dark_blue,
@@ -114,7 +132,23 @@ const Navigator = () => {
             elevation: 24,
             borderTopWidth: 0,
           },
-          labelStyle: { fontSize: 14, bottom: 5 },
+
+          labelStyle:
+            Width > 700
+              ? {
+                  fontSize: 16,
+                  bottom: -5,
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontFamily:'Montserrat_700Bold'
+
+                }
+              : {
+                  fontSize: 13,
+                  bottom: 5,
+                  fontFamily:'Montserrat_700Bold'
+                },
         }}
         initialRouteName="Home"
       >
@@ -122,17 +156,20 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Ana Sayfa",
             tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.box,
-                  { backgroundColor: focused && colors.light_purple },
-                ]}
-              >
-                <MaterialCommunityIcons
-                  name="home-variant-outline"
-                  size={31}
-                  color={focused ? "white" : colors.light_gray}
-                />
+              <View style={{ alignItems: "center" }}>
+                <View
+                  style={[
+                    styles.box,
+                    { backgroundColor: focused && colors.light_purple },
+                  ]}
+                >
+                  <MaterialCommunityIcons
+                    name="home-variant-outline"
+                    size={31}
+                    color={focused ? "white" : colors.light_gray}
+                  />
+                </View>
+                {/* <Text style={{ color: "white" }}>Ana sayfa</Text> */}
               </View>
             ),
           }}
@@ -230,7 +267,6 @@ const Navigator = () => {
 
 const styles = StyleSheet.create({
   box: {
-    display: "flex",
     width: 46,
     height: 46,
     justifyContent: "center",
