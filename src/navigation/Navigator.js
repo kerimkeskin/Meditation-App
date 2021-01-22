@@ -8,6 +8,7 @@ import {
   MeditateScreen,
   ProfileScreen,
 } from "../screens";
+import { View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -96,9 +97,12 @@ const Navigator = () => {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
+          activeTintColor: "#fff",
+          activeBackgroundColor: () => "yellow",
           tabStyle: { width: "100%" },
           style: {
             backgroundColor: colors.dark_blue,
+
             height: "12.5%",
             shadowColor: "#000",
             shadowOffset: {
@@ -110,7 +114,7 @@ const Navigator = () => {
             elevation: 24,
             borderTopWidth: 0,
           },
-          labelStyle: { fontSize: 14 },
+          labelStyle: { fontSize: 14, bottom: 5 },
         }}
         initialRouteName="Home"
       >
@@ -118,11 +122,18 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Ana Sayfa",
             tabBarIcon: ({ focused }) => (
-              <MaterialCommunityIcons
-                name="home-variant-outline"
-                size={31}
-                color={focused ? "white" : colors.light_gray}
-              />
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <MaterialCommunityIcons
+                  name="home-variant-outline"
+                  size={31}
+                  color={focused ? "white" : colors.light_gray}
+                />
+              </View>
             ),
           }}
           name="Home"
@@ -132,11 +143,18 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Uyku",
             tabBarIcon: ({ focused }) => (
-              <Feather
-                name="moon"
-                size={29}
-                color={focused ? "white" : colors.light_gray}
-              />
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <Feather
+                  name="moon"
+                  size={29}
+                  color={focused ? "white" : colors.light_gray}
+                />
+              </View>
             ),
           }}
           name="Sleep"
@@ -146,11 +164,18 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Meditasyon",
             tabBarIcon: ({ focused }) => (
-              <MaterialCommunityIcons
-                name="meditation"
-                size={29}
-                color={focused ? "white" : colors.light_gray}
-              />
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <MaterialCommunityIcons
+                  name="meditation"
+                  size={29}
+                  color={focused ? "white" : colors.light_gray}
+                />
+              </View>
             ),
           }}
           name="Meditate"
@@ -160,11 +185,18 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Müzik",
             tabBarIcon: ({ focused }) => (
-              <MaterialCommunityIcons
-                name="music"
-                size={30}
-                color={focused ? "white" : colors.light_gray}
-              />
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <MaterialCommunityIcons
+                  name="music"
+                  size={30}
+                  color={focused ? "white" : colors.light_gray}
+                />
+              </View>
             ),
           }}
           name="Music"
@@ -174,11 +206,18 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Profil",
             tabBarIcon: ({ focused }) => (
-              <FontAwesome5
-                name="user"
-                size={27}
-                color={focused ? "white" : colors.light_gray}
-              />
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <FontAwesome5
+                  name="user"
+                  size={27}
+                  color={focused ? "white" : colors.light_gray}
+                />
+              </View>
             ),
           }}
           name="Profile"
@@ -188,5 +227,16 @@ const Navigator = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  box: {
+    display: "flex",
+    width: 46,
+    height: 46,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 18,
+  },
+});
 
 export default Navigator;
