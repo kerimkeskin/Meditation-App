@@ -4,4 +4,5 @@ export default {
   dark_blue: "#03174C",
   light_gray: "#98A1BD",
   light_purple: "#8E97FD",
+  icon_color: "#A0A3B1",
 };

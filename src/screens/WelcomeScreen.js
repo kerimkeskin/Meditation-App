@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import colors from "../assets/colors/colors";
+import WelcomeBG from "../assets/images/BG-welcome";
 import ClassicButton from "../components/ClassicButton";
 import {
   useFonts,
@@ -30,33 +31,27 @@ const WelcomeScreen = ({ onPress }) => {
   }
   return (
     <View style={{ flex: 1 }}>
-      <ImageBackground
-        resizeMode="contain"
-        style={styles.bg}
-        source={require("../assets/images/bg-welcome.png")}
-      >
-        <View style={styles.headercontainer}>
-          <View style={styles.header}>
-            <Text style={styles.headertext}>Merhaba KESKİN</Text>
-            <Text style={styles.headertext2}>Silent Moon'a Hoşgeldin</Text>
-          </View>
+      <WelcomeBG style={styles.bg} />
+      <View style={styles.headercontainer}>
+        <View style={styles.header}>
+          <Text style={styles.headertext}>Merhaba KESKİN</Text>
+          <Text style={styles.headertext2}>Silent Moon'a Hoşgeldin</Text>
         </View>
-        <View style={styles.body}>
-          <View style={styles.bodywrapper}>
-            <Text style={styles.bodytext}>
-              Uygulamayı keşfedin, meditasyona hazırlanmak için biraz huzur
-              bulun.
-            </Text>
-          </View>
+      </View>
+      <View style={styles.body}>
+        <View style={styles.bodywrapper}>
+          <Text style={styles.bodytext}>
+            Uygulamayı keşfedin, meditasyona hazırlanmak için biraz huzur bulun.
+          </Text>
         </View>
-        <View style={styles.btn}>
-          <ClassicButton
-            onPress={onPress}
-            title={"HADİ BAŞLAYALIM"}
-            bg={colors.light}
-          />
-        </View>
-      </ImageBackground>
+      </View>
+      <View style={styles.btn}>
+        <ClassicButton
+          onPress={onPress}
+          title={"HADİ BAŞLAYALIM"}
+          bg={colors.light}
+        />
+      </View>
     </View>
   );
 };
@@ -64,10 +59,6 @@ const WelcomeScreen = ({ onPress }) => {
 const styles = StyleSheet.create({
   bg: {
     position: "absolute",
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
     backgroundColor: colors.light_blue,
   },
   headercontainer: {

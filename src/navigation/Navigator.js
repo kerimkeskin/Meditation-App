@@ -8,7 +8,13 @@ import {
   MeditateScreen,
   ProfileScreen,
 } from "../screens";
-import { View, StyleSheet, Dimensions,ActivityIndicator } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  ActivityIndicator,
+  Image,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -24,7 +30,13 @@ import {
   Montserrat_600SemiBold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
-
+import {
+  HomeIcon,
+  MeditateIcon,
+  MusicIcon,
+  SleepIcon,
+  ProfileIcon,
+} from "../components/icons";
 
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
@@ -141,13 +153,12 @@ const Navigator = () => {
                   flex: 1,
                   justifyContent: "center",
                   alignItems: "center",
-                  fontFamily:'Montserrat_700Bold'
-
+                  fontFamily: "Montserrat_700Bold",
                 }
               : {
                   fontSize: 13,
                   bottom: 5,
-                  fontFamily:'Montserrat_700Bold'
+                  fontFamily: "Montserrat_700Bold",
                 },
         }}
         initialRouteName="Home"
@@ -163,13 +174,8 @@ const Navigator = () => {
                     { backgroundColor: focused && colors.light_purple },
                   ]}
                 >
-                  <MaterialCommunityIcons
-                    name="home-variant-outline"
-                    size={31}
-                    color={focused ? "white" : colors.light_gray}
-                  />
+                  <HomeIcon fill={focused ? "#fff" : colors.icon_color} />
                 </View>
-                {/* <Text style={{ color: "white" }}>Ana sayfa</Text> */}
               </View>
             ),
           }}
@@ -186,11 +192,7 @@ const Navigator = () => {
                   { backgroundColor: focused && colors.light_purple },
                 ]}
               >
-                <Feather
-                  name="moon"
-                  size={29}
-                  color={focused ? "white" : colors.light_gray}
-                />
+                  <SleepIcon fill={focused ? "#fff" : colors.icon_color} />
               </View>
             ),
           }}
@@ -207,11 +209,7 @@ const Navigator = () => {
                   { backgroundColor: focused && colors.light_purple },
                 ]}
               >
-                <MaterialCommunityIcons
-                  name="meditation"
-                  size={29}
-                  color={focused ? "white" : colors.light_gray}
-                />
+                <MeditateIcon fill={focused ? "#fff" : colors.icon_color} />
               </View>
             ),
           }}
@@ -228,11 +226,7 @@ const Navigator = () => {
                   { backgroundColor: focused && colors.light_purple },
                 ]}
               >
-                <MaterialCommunityIcons
-                  name="music"
-                  size={30}
-                  color={focused ? "white" : colors.light_gray}
-                />
+                <MusicIcon fill={focused ? "#fff" : colors.icon_color} />
               </View>
             ),
           }}
@@ -249,11 +243,7 @@ const Navigator = () => {
                   { backgroundColor: focused && colors.light_purple },
                 ]}
               >
-                <FontAwesome5
-                  name="user"
-                  size={27}
-                  color={focused ? "white" : colors.light_gray}
-                />
+                 <ProfileIcon fill={focused ? "#fff" : colors.icon_color} />
               </View>
             ),
           }}
