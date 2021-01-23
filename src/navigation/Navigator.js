@@ -8,21 +8,10 @@ import {
   MeditateScreen,
   ProfileScreen,
 } from "../screens";
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  ActivityIndicator,
-  Image,
-} from "react-native";
+import { View, StyleSheet, Dimensions, ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {
-  MaterialCommunityIcons,
-  Feather,
-  FontAwesome5,
-} from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
 import {
   useFonts,
@@ -114,7 +103,7 @@ const ProfileTab = () => {
   );
 };
 
-const Navigator = () => {
+const BottomTab = () => {
   let [fontsLoaded] = useFonts({
     Montserrat_700Bold,
     Montserrat_600SemiBold,
@@ -124,133 +113,145 @@ const Navigator = () => {
     return <ActivityIndicator />;
   }
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          labelPosition: "below-icon",
-          activeTintColor: "#fff",
-          tabStyle: { width: "100%" },
-          style: {
-            backgroundColor: colors.dark_blue,
+    <Tab.Navigator
+      tabBarOptions={{
+        labelPosition: "below-icon",
+        activeTintColor: "#fff",
+        tabStyle: { width: "100%" },
+        style: {
+          backgroundColor: colors.dark_blue,
 
-            height: "12.5%",
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 12,
-            },
-            shadowOpacity: 2.58,
-            shadowRadius: 36.0,
-            elevation: 24,
-            borderTopWidth: 0,
+          height: "12.5%",
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 12,
           },
+          shadowOpacity: 2.58,
+          shadowRadius: 36.0,
+          elevation: 24,
+          borderTopWidth: 0,
+        },
 
-          labelStyle:
-            Width > 700
-              ? {
-                  fontSize: 16,
-                  bottom: -5,
-                  flex: 1,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  fontFamily: "Montserrat_700Bold",
-                }
-              : {
-                  fontSize: 13,
-                  bottom: 5,
-                  fontFamily: "Montserrat_700Bold",
-                },
+        labelStyle:
+          Width > 700
+            ? {
+                fontSize: 16,
+                bottom: -5,
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "Montserrat_700Bold",
+              }
+            : {
+                fontSize: 13,
+                bottom: 5,
+                fontFamily: "Montserrat_700Bold",
+              },
+      }}
+      initialRouteName="Home"
+    >
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Ana Sayfa",
+          tabBarIcon: ({ focused }) => (
+            <View style={{ alignItems: "center" }}>
+              <View
+                style={[
+                  styles.box,
+                  { backgroundColor: focused && colors.light_purple },
+                ]}
+              >
+                <HomeIcon fill={focused ? "#fff" : colors.icon_color} />
+              </View>
+            </View>
+          ),
         }}
-        initialRouteName="Home"
+        name="Home"
+        component={HomeTab}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Uyku",
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={[
+                styles.box,
+                { backgroundColor: focused && colors.light_purple },
+              ]}
+            >
+              <SleepIcon fill={focused ? "#fff" : colors.icon_color} />
+            </View>
+          ),
+        }}
+        name="Sleep"
+        component={SleepTab}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Meditasyon",
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={[
+                styles.box,
+                { backgroundColor: focused && colors.light_purple },
+              ]}
+            >
+              <MeditateIcon fill={focused ? "#fff" : colors.icon_color} />
+            </View>
+          ),
+        }}
+        name="Meditate"
+        component={MeditateTab}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Müzik",
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={[
+                styles.box,
+                { backgroundColor: focused && colors.light_purple },
+              ]}
+            >
+              <MusicIcon fill={focused ? "#fff" : colors.icon_color} />
+            </View>
+          ),
+        }}
+        name="Music"
+        component={MusicTab}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "Profil",
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={[
+                styles.box,
+                { backgroundColor: focused && colors.light_purple },
+              ]}
+            >
+              <ProfileIcon fill={focused ? "#fff" : colors.icon_color} />
+            </View>
+          ),
+        }}
+        name="Profile"
+        component={ProfileTab}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const Navigator = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Welcome"
+        screenOptions={{ headerShown: false }}
       >
-        <Tab.Screen
-          options={{
-            tabBarLabel: "Ana Sayfa",
-            tabBarIcon: ({ focused }) => (
-              <View style={{ alignItems: "center" }}>
-                <View
-                  style={[
-                    styles.box,
-                    { backgroundColor: focused && colors.light_purple },
-                  ]}
-                >
-                  <HomeIcon fill={focused ? "#fff" : colors.icon_color} />
-                </View>
-              </View>
-            ),
-          }}
-          name="Home"
-          component={HomeTab}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabel: "Uyku",
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.box,
-                  { backgroundColor: focused && colors.light_purple },
-                ]}
-              >
-                  <SleepIcon fill={focused ? "#fff" : colors.icon_color} />
-              </View>
-            ),
-          }}
-          name="Sleep"
-          component={SleepTab}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabel: "Meditasyon",
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.box,
-                  { backgroundColor: focused && colors.light_purple },
-                ]}
-              >
-                <MeditateIcon fill={focused ? "#fff" : colors.icon_color} />
-              </View>
-            ),
-          }}
-          name="Meditate"
-          component={MeditateTab}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabel: "Müzik",
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.box,
-                  { backgroundColor: focused && colors.light_purple },
-                ]}
-              >
-                <MusicIcon fill={focused ? "#fff" : colors.icon_color} />
-              </View>
-            ),
-          }}
-          name="Music"
-          component={MusicTab}
-        />
-        <Tab.Screen
-          options={{
-            tabBarLabel: "Profil",
-            tabBarIcon: ({ focused }) => (
-              <View
-                style={[
-                  styles.box,
-                  { backgroundColor: focused && colors.light_purple },
-                ]}
-              >
-                 <ProfileIcon fill={focused ? "#fff" : colors.icon_color} />
-              </View>
-            ),
-          }}
-          name="Profile"
-          component={ProfileTab}
-        />
-      </Tab.Navigator>
+        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen name="HomeSt" component={BottomTab} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };

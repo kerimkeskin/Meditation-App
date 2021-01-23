@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground,
   Dimensions,
   ActivityIndicator,
 } from "react-native";
@@ -20,7 +19,7 @@ import {
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
-const WelcomeScreen = ({ onPress }) => {
+const WelcomeScreen = ({ navigation }) => {
   let [fontsLoaded] = useFonts({
     Montserrat_700Bold,
     Montserrat_600SemiBold,
@@ -47,7 +46,7 @@ const WelcomeScreen = ({ onPress }) => {
       </View>
       <View style={styles.btn}>
         <ClassicButton
-          onPress={onPress}
+          onPress={() => navigation.navigate("HomeSt")}
           title={"HADİ BAŞLAYALIM"}
           bg={colors.light}
         />

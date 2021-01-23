@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  ImageBackground,
   Dimensions,
   ActivityIndicator,
 } from "react-native";
@@ -16,9 +15,10 @@ import {
 } from "@expo-google-fonts/montserrat";
 import CourseCard from "../components/CourseCard";
 import HomeBG from "../assets/images/BG-Home";
+
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
-console.log(Height * 0.3627 * 0.645);
+
 const HomeScreen = () => {
   let [fontsLoaded] = useFonts({
     Montserrat_700Bold,
@@ -52,10 +52,6 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   bg: {
     position: "absolute",
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
     backgroundColor: colors.dark_blue,
   },
   titlecontainer: {
