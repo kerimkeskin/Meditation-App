@@ -46,13 +46,14 @@ const WelcomeScreen = ({ navigation }) => {
       </View>
       <View style={styles.btn}>
         <ClassicButton
-          onPress={() => navigation.navigate("HomeSt")}
+          onPress={() => {navigation.navigate("HomeSt")}}
           title={"HADİ BAŞLAYALIM"}
           bg={colors.light}
         />
       </View>
     </View>
   );
+ 
 };
 
 const styles = StyleSheet.create({

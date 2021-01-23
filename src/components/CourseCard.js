@@ -4,28 +4,15 @@ import {
   Text,
   View,
   Dimensions,
-  ActivityIndicator,
   ImageBackground,
 } from "react-native";
-import {
-  useFonts,
-  Montserrat_700Bold,
-  Montserrat_600SemiBold,
-  Montserrat_800ExtraBold,
-} from "@expo-google-fonts/montserrat";
+
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
 const CourseCard = () => {
-  let [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
-    Montserrat_600SemiBold,
-    Montserrat_800ExtraBold,
-  });
-  if (!fontsLoaded) {
-    return <ActivityIndicator />;
-  }
+
   return (
     <View style={styles.cardcontainer}>
       <ImageBackground

@@ -14,12 +14,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import colors from "../assets/colors/colors";
 import {
-  useFonts,
-  Montserrat_700Bold,
-  Montserrat_600SemiBold,
-  Montserrat_800ExtraBold,
-} from "@expo-google-fonts/montserrat";
-import {
   HomeIcon,
   MeditateIcon,
   MusicIcon,
@@ -104,14 +98,7 @@ const ProfileTab = () => {
 };
 
 const BottomTab = () => {
-  let [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
-    Montserrat_600SemiBold,
-    Montserrat_800ExtraBold,
-  });
-  if (!fontsLoaded) {
-    return <ActivityIndicator />;
-  }
+
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -243,6 +230,7 @@ const BottomTab = () => {
 };
 
 const Navigator = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -254,6 +242,7 @@ const Navigator = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
+ 
 };
 
 const styles = StyleSheet.create({

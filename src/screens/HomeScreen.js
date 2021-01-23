@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -7,14 +7,14 @@ import {
   ActivityIndicator,
 } from "react-native";
 import colors from "../assets/colors/colors";
+import CourseCard from "../components/CourseCard";
+import HomeBG from "../assets/images/BG-Home";
 import {
   useFonts,
   Montserrat_700Bold,
   Montserrat_600SemiBold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
-import CourseCard from "../components/CourseCard";
-import HomeBG from "../assets/images/BG-Home";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
