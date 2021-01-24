@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     fontSize: 15,
-    // fontWeight: "300",
     fontFamily: "Montserrat_600SemiBold",
   },
   btn: {
@@ -106,8 +105,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-// Montserrat_700Bold,
-// Montserrat_600SemiBold,
-// Montserrat_800ExtraBold,
 export default WelcomeScreen;

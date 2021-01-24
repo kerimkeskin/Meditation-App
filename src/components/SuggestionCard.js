@@ -1,13 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
+import { SvgUri } from "react-native-svg";
+
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
 
-const SuggestionCard = ({ bgcolor, title, subtitle, source }) => {
+const SuggestionCard = ({ bgcolor, title, subtitle, uri }) => {
   return (
     <View style={styles.container}>
       <View style={[styles.image_bg, { backgroundColor: `${bgcolor}` }]}>
-        <Image style={styles.image} resizeMode="contain" source={source} />
+        <SvgUri
+          width={Width / 2.6}
+          height={"90%"}
+          style={styles.image}
+          uri={uri}
+        />
       </View>
 
       <Text style={styles.title}>{title}</Text>
@@ -30,10 +37,8 @@ const styles = StyleSheet.create({
   },
   image: {
     position: "absolute",
-    left: 0,
-    top: 0,
-    width: "100%",
-    height: "100%",
+    right: 0,
+    bottom: 0,
   },
   title: {
     marginTop: "4%",

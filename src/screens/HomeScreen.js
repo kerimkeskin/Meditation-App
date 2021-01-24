@@ -1,35 +1,15 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  ActivityIndicator,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, Dimensions, ScrollView } from "react-native";
 import colors from "../assets/colors/colors";
 import CourseCard from "../components/CourseCard";
+import { SvgUri } from "react-native-svg";
 import SuggestionCard from "../components/SuggestionCard";
 import HomeBG from "../assets/images/BG-Home";
-import {
-  useFonts,
-  Montserrat_700Bold,
-  Montserrat_600SemiBold,
-  Montserrat_800ExtraBold,
-} from "@expo-google-fonts/montserrat";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
 const HomeScreen = () => {
-  let [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
-    Montserrat_600SemiBold,
-    Montserrat_800ExtraBold,
-  });
-  if (!fontsLoaded) {
-    return <ActivityIndicator />;
-  }
   return (
     <View style={{ flex: 1 }}>
       <HomeBG style={styles.bg} />
@@ -41,10 +21,38 @@ const HomeScreen = () => {
       <View style={styles.cardcontainer}>
         <View style={styles.cardwrapper}>
           <View style={styles.card}>
-            <CourseCard />
-            <CourseCard />
+            <CourseCard
+              buttonbg="#fff"
+              buttoncolor="#000"
+              title="Temel"
+              subtitle="KURS"
+              color="#fff"
+              bg={colors.light_purple}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611481876/card2_h9xxha.svg"
+            />
+
+            <CourseCard
+              buttonbg="#000"
+              buttoncolor="#fff"
+              title="Relax"
+              subtitle="MÜZİK"
+              color="#000"
+              bg={colors.light_brown}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611481205/card2_bycuyt.svg"
+            />
           </View>
-          <View style={styles.bodycard}></View>
+          <View style={styles.bodycard}>
+            <SvgUri
+              width="40%"
+              height="100%"
+              style={{ position: "absolute", right: 0 }}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611496198/Frame_fhcovw.svg"
+            />
+            <View style={styles.bodytextwrapper}>
+              <Text style={styles.bodytext}>Günlük Düşünce</Text>
+              <Text style={styles.bodsubtext}>MEDİTASYON 3-10 dak</Text>
+            </View>
+          </View>
         </View>
       </View>
       <View style={{ flex: 1, alignItems: "center" }}>
@@ -55,19 +63,19 @@ const HomeScreen = () => {
 
           <ScrollView showsHorizontalScrollIndicator={false} horizontal>
             <SuggestionCard
-              source={require("../assets/images/focus.png")}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611482031/suggestion1_w3sueh.svg"
               title="Odaklanma"
               subtitle="MEDİTASYON 3-10 dk"
               bgcolor={colors.card_light_green}
             />
             <SuggestionCard
-              source={require("../assets/images/happiness.png")}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611482031/suggestion2_c4bpkw.svg"
               title="Mutluluk"
               subtitle="MEDİTASYON 3-10 dk"
               bgcolor={colors.light_brown}
             />
             <SuggestionCard
-              source={require("../assets/images/growth.png")}
+              uri="https://res.cloudinary.com/hgxc6a8kj/image/upload/v1611482031/suggestion3_qoucih.svg"
               title="Kişisel Gelişim"
               subtitle="MEDİTASYON 3-10 dk"
               bgcolor={colors.card_dark_green}
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
     height: Height * 0.3627,
   },
   bodycard: {
-    backgroundColor: "#fff",
+    backgroundColor: colors.card_purple,
     width: "100%",
     height: "29.18%",
     position: "absolute",
@@ -131,6 +139,23 @@ const styles = StyleSheet.create({
   footertitle: {
     color: "#fff",
     fontSize: 24,
+    fontFamily: "Montserrat_600SemiBold",
+  },
+  bodytextwrapper: {
+    flex: 1,
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  bodytext: {
+    fontSize: 18,
+    fontFamily: "Montserrat_700Bold",
+    color: "#fff",
+  },
+  bodsubtext: {
+    color: "#fff",
+    marginTop: 2,
+    fontSize: 11,
     fontFamily: "Montserrat_600SemiBold",
   },
 });

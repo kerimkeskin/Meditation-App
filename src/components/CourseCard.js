@@ -1,41 +1,108 @@
 import React from "react";
 import {
   StyleSheet,
-  Text,
   View,
   Dimensions,
-  ImageBackground,
+  Text,
+  TouchableOpacity,
 } from "react-native";
-
+import { SvgUri } from "react-native-svg";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
-const CourseCard = () => {
-
+const CourseCard = ({
+  bg,
+  uri,
+  color,
+  title,
+  subtitle,
+  buttonbg,
+  buttoncolor,
+}) => {
   return (
-    <View style={styles.cardcontainer}>
-      <ImageBackground
-        style={styles.bg}
-        resizeMode="cover"
-        // source={require("../assets/images/home-card-1.png")}
-      ></ImageBackground>
+    <View style={[styles.cardcontainer, { backgroundColor: `${bg}` }]}>
+      <SvgUri style={{ position: "absolute", right: 4, top: 4 }} uri={uri} />
+      <View style={styles.leftside}>
+        <View style={styles.coursetextwrapper}>
+          <Text style={[styles.coursetext, { color: `${color}` }]}>
+            {title}
+          </Text>
+          <Text style={[styles.coursetext2, { color: `${color}` }]}>
+            {subtitle}
+          </Text>
+        </View>
+      </View>
+      <View style={styles.minwrapper}>
+        <Text style={[styles.mintext, { color: `${color}` }]}>3-10 dak</Text>
+      </View>
+      <TouchableOpacity
+        activeOpacity="0.6"
+        style={[styles.button, { backgroundColor: `${buttonbg}` }]}
+      >
+        <Text style={[styles.buttontext, { color: `${buttoncolor}` }]}>
+          BAŞLA
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   cardcontainer: {
-    // width: Width / 2.35,
-    // height: Height / 4.266,
-    // width: '47%',
-    height: "64.61%",
-    backgroundColor: "#fff",
     borderRadius: 10,
-  },
-  bg: {
     width: Width / 2.3,
     height: Height / 4.266,
+  },
+  bg: {
+    backgroundColor: "red",
+    width: Width / 2.3,
+    height: Height / 4.266,
+  },
+  leftside: {
+    width: "45%",
+    justifyContent: "flex-end",
+    height: "75%",
+    alignItems: "center",
+  },
+  coursetextwrapper: {
+    height: 70,
+    alignItems: "center",
+    justifyContent: "flex-end",
+  },
+  coursetext: {
+    fontSize: 18,
+    fontFamily: "Montserrat_700Bold",
+  },
+  coursetext2: {
+    fontSize: 12,
+    fontFamily: "Montserrat_600SemiBold",
+  },
+  minwrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "45%",
+    height: "25%",
+  },
+  mintext: {
+    color: "#fff",
+    fontSize: 11,
+    fontFamily: "Montserrat_600SemiBold",
+  },
+  button: {
+    position: "absolute",
+    right: "7%",
+    bottom: "7%",
+    width: Width / 5.81,
+    height: Height / 24.266,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttontext: {
+    fontSize: 12,
+    letterSpacing: 0.3,
+    fontFamily: "Montserrat_600SemiBold",
   },
 });
 

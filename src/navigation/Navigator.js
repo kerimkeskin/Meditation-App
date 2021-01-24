@@ -98,7 +98,6 @@ const ProfileTab = () => {
 };
 
 const BottomTab = () => {
-
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -230,7 +229,6 @@ const BottomTab = () => {
 };
 
 const Navigator = () => {
-
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -242,7 +240,6 @@ const Navigator = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
- 
 };
 
 const styles = StyleSheet.create({
