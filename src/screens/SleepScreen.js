@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import SleepBG from "../assets/images/BG-Sleep";
 import colors from "../assets/colors/colors";
 import Category from "../components/Category";
-
+import SleepBodyCard from "../components/SleepBodyCard";
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
 
@@ -24,6 +24,9 @@ const SleepScreen = () => {
       </View>
       <View style={styles.categorycontainer}>
         <Category />
+      </View>
+      <View style={styles.bodycard}>
+        <SleepBodyCard />
       </View>
     </View>
   );
@@ -60,7 +63,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: Width,
     height: Height / 7.5,
-    top: Height / 4.28,
+    top: Height / 4.88,
+  },
+  bodycard: {
+    width: Width,
+    position: "absolute",
+    top: Height / 4.88 + Height / 7.5,
   },
 });
 
