@@ -60,7 +60,7 @@ const WelcomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   bg: {
     position: "absolute",
-    backgroundColor: colors.light_blue,
+    backgroundColor: colors.light_purple,
   },
   headercontainer: {
     width: Width,

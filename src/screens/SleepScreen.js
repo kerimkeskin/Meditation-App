@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import SleepBG from "../assets/images/BG-Sleep";
 import colors from "../assets/colors/colors";
+import Category from "../components/Category";
 
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
@@ -9,7 +10,7 @@ const Width = Dimensions.get("window").width;
 const SleepScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: colors.dark_blue }}>
-      <SleepBG style={styles.bg} />
+      <SleepBG />
       <View style={styles.headercontainer}>
         <View style={styles.header}>
           <Text style={styles.headertext}>UYKU HİKAYELERİ</Text>
@@ -20,6 +21,9 @@ const SleepScreen = () => {
             hikayeler
           </Text>
         </View>
+      </View>
+      <View style={styles.categorycontainer}>
+        <Category />
       </View>
     </View>
   );
@@ -51,6 +55,12 @@ const styles = StyleSheet.create({
   },
   headersubtextwrapper: {
     width: "80%",
+  },
+  categorycontainer: {
+    position: "absolute",
+    width: Width,
+    height: Height / 7.5,
+    top: Height / 4.28,
   },
 });
 

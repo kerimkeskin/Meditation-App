@@ -1,14 +1,48 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from "react";
+import { StyleSheet, ScrollView } from "react-native";
+import CategoryBox from "../components/CategoryBox";
+import {
+  AllIcon,
+  KidsIcon,
+  FavoriteIcon,
+  AnxiousIcon,
+  SleepIcon_Cat,
+} from "../components/icons";
 
 const Category = () => {
-    return (
-        <View>
-            <Text></Text>
-        </View>
-    )
-}
+  return (
+    <ScrollView
+      contentContainerStyle={{
+        flexGrow: 1,
+        justifyContent: "space-around",
+      }}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+    >
+      <CategoryBox text="Hepsi">
+        <AllIcon />
+      </CategoryBox>
+      <CategoryBox text="Favoriler">
+        <FavoriteIcon />
+      </CategoryBox>
+      <CategoryBox text="Endişeli">
+        <AnxiousIcon />
+      </CategoryBox>
+      <CategoryBox text="Uyku">
+        <SleepIcon_Cat />
+      </CategoryBox>
+      <CategoryBox text="Çocuklar">
+        <KidsIcon />
+      </CategoryBox>
+    </ScrollView>
+  );
+};
 
-export default Category
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+  },
+});
 
-const styles = StyleSheet.create({})
+export default Category;
