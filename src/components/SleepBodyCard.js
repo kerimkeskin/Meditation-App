@@ -18,7 +18,7 @@ const SleepBodyCard = () => {
       <View style={styles.card}>
         <Image
           style={styles.image}
-          source={require("../assets/images/bodycard.png")}
+          source={require("../assets/images/SleepScreen/bodycard.png")}
         />
         <View style={styles.icon}>
           <Feather name="lock" size={16} color="white" />

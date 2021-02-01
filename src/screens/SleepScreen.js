@@ -1,14 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions, ScrollView } from "react-native";
-import SleepBG from "../assets/images/BG-Sleep";
+import {
+  SleepBG,
+  Card1,
+  Card2,
+  Card3,
+  Card4,
+} from "../assets/images/SleepScreen";
 import colors from "../assets/colors/colors";
 import Category from "../components/Category";
 import SleepBodyCard from "../components/SleepBodyCard";
 import Header from "../components/Header";
-import Card1 from "../assets/images/Card1";
-import Card2 from "../assets/images/Card2";
-import Card3 from "../assets/images/Card3";
-import Card4 from "../assets/images/Card4";
 import MusicCard from "../components/MusicCard";
 
 const Height = Dimensions.get("window").height;

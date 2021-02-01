@@ -4,7 +4,7 @@ import colors from "../assets/colors/colors";
 import CourseCard from "../components/CourseCard";
 import { SvgUri } from "react-native-svg";
 import SuggestionCard from "../components/SuggestionCard";
-import HomeBG from "../assets/images/BG-Home";
+import HomeBG from "../assets/images/HomeScreen/BG-Home";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;

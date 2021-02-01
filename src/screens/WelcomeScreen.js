@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import colors from "../assets/colors/colors";
-import WelcomeBG from "../assets/images/BG-Welcome";
+import WelcomeBG from "../assets/images/WelcomeScreen/BG-Welcome";
 import ClassicButton from "../components/ClassicButton";
 import {
   useFonts,
