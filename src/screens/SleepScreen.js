@@ -4,6 +4,7 @@ import SleepBG from "../assets/images/BG-Sleep";
 import colors from "../assets/colors/colors";
 import Category from "../components/Category";
 import SleepBodyCard from "../components/SleepBodyCard";
+import Header from "../components/Header";
 import Card1 from "../assets/images/Card1";
 import Card2 from "../assets/images/Card2";
 import Card3 from "../assets/images/Card3";
@@ -17,17 +18,10 @@ const SleepScreen = () => {
   return (
     <View style={{ flex: 1, backgroundColor: colors.dark_blue }}>
       <SleepBG />
-      <View style={styles.headercontainer}>
-        <View style={styles.header}>
-          <Text style={styles.headertext}>UYKU HİKAYELERİ</Text>
-        </View>
-        <View style={styles.headersubtextwrapper}>
-          <Text style={styles.headersubtext}>
-            Derin ve doğal bir uykuya dalmanıza yardımcı olacak yatıştırıcı
-            hikayeler
-          </Text>
-        </View>
-      </View>
+      <Header
+        text="UYKU HİKAYELERİ"
+        subtext="Derin ve doğal bir uykuya dalmanıza yardımcı olacak yatıştırıcı hikayeler"
+      />
       <View style={styles.categorycontainer}>
         <View style={{ alignItems: "center", width: Width * 0.9 }}>
           <Category />
@@ -68,32 +62,6 @@ const SleepScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  headercontainer: {
-    position: "absolute",
-    height: Height / 4.28,
-    width: Width,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  header: {
-    justifyContent: "center",
-    height: "30%",
-    marginTop: "7%",
-  },
-  headertext: {
-    color: "#fff",
-    fontSize: 28,
-    fontFamily: "Montserrat_700Bold",
-  },
-  headersubtext: {
-    color: "#fff",
-    fontSize: 16,
-    textAlign: "center",
-    fontFamily: "Montserrat_600SemiBold",
-  },
-  headersubtextwrapper: {
-    width: "80%",
-  },
   categorycontainer: {
     position: "absolute",
     width: Width,
@@ -109,7 +77,6 @@ const styles = StyleSheet.create({
   MusicCardContainer: {
     position: "absolute",
     width: Width,
-    height: 500,
     backgroundColor: colors.dark_blue,
     alignItems: "center",
     top: Height / 4.88 + Height / 7.5 + Height / 3.6,
