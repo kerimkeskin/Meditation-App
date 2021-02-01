@@ -50,7 +50,7 @@ const HomeScreen = () => {
             />
             <View style={styles.bodytextwrapper}>
               <Text style={styles.bodytext}>Günlük Düşünce</Text>
-              <Text style={styles.bodsubtext}>MEDİTASYON 3-10 dak</Text>
+              <Text style={styles.bodysubtext}>MEDİTASYON 3-10 dak</Text>
             </View>
           </View>
         </View>
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat_700Bold",
     color: "#fff",
   },
-  bodsubtext: {
+  bodysubtext: {
     color: "#fff",
     marginTop: 2,
     fontSize: 11,

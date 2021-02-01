@@ -8,5 +8,7 @@ export default {
   card_dark_green: "#6CB28E",
   light_brown: "#FFDB9D",
   card_purple: "#807BB0",
+  soft_black:'#3F414E',
+  soft_black2:'#5A6175'
   
 };

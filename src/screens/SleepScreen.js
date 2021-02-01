@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     width: Width,
     alignItems: "center",
     height: Height / 7.5,
-    top: Height / 4.88,
+    top: Height / 4.68,
   },
   bodycard: {
     width: Width,

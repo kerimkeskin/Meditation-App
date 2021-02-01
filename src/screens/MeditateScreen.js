@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import colors from "../assets/colors/colors";
 import Category from "../components/Category";
 import Header from "../components/Header";
+import MedBodyCard from "../assets/images/MedBodyCard";
+import PlayIcon from "../assets/images/MiniPlayIcon";
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
 
@@ -18,6 +20,17 @@ const MeditateScreen = () => {
           <Category />
         </View>
       </View>
+
+      <View style={styles.bodycardcontainer}>
+        <View style={styles.bodycard}>
+          <MedBodyCard />
+          <PlayIcon />
+          <View style={styles.bodytextwrapper}>
+            <Text style={styles.bodytext}>Günlük Sakinlik</Text>
+            <Text style={styles.bodysubtext}>30 Nis - Müziği Duraklat </Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
@@ -29,6 +42,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: Height / 7.5,
     top: Height / 4.68,
+  },
+  bodycardcontainer: {
+    width: Width,
+    alignItems: "center",
+    position: "absolute",
+  },
+  bodycard: {
+    width: Width * 0.9,
+    height: Height / 9.43,
+    borderRadius: 10,
+    top: Height / 4.68 + Height / 7.5,
+  },
+  bodytextwrapper: {
+    height: Height / 9.43,
+    width: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  bodytext: {
+    fontSize: 18,
+    fontFamily: "Montserrat_700Bold",
+    color: colors.soft_black,
+  },
+  bodysubtext: {
+    color: colors.soft_black2,
+    marginTop: 2,
+    fontSize: 11,
+    fontFamily: "Montserrat_600SemiBold",
   },
 });
 
