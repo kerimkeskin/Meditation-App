@@ -4,10 +4,9 @@ import colors from "../assets/colors/colors";
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
 
-
-const CategoryBox = ({ children,text }) => {
+const CategoryBox = ({ children, text }) => {
   return (
-    <View  style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.box}>{children}</View>
       <Text style={styles.text}>{text}</Text>
     </View>
@@ -16,7 +15,7 @@ const CategoryBox = ({ children,text }) => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
+    width:85,
     alignItems: "center",
   },
   box: {
@@ -26,13 +25,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light_purple,
     alignItems: "center",
     justifyContent: "center",
-
   },
   text: {
     fontFamily: "Montserrat_600SemiBold",
-    margin: 5,
+    margin:4,
     color: "#fff",
-    fontSize: 16,
+    fontSize: 15,
   },
 });
 

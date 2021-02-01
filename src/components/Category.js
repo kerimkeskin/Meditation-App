@@ -14,7 +14,7 @@ const Category = () => {
     <ScrollView
       contentContainerStyle={{
         flexGrow: 1,
-        justifyContent: "space-around",
+        justifyContent: "space-between",
       }}
       horizontal
       showsHorizontalScrollIndicator={false}

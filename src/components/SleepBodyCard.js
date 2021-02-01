@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import colors from "../assets/colors/colors";
+import { Feather } from "@expo/vector-icons";
 const Height = Dimensions.get("window").height;
 const Width = Dimensions.get("window").width;
 
@@ -19,6 +20,9 @@ const SleepBodyCard = () => {
           style={styles.image}
           source={require("../assets/images/bodycard.png")}
         />
+        <View style={styles.icon}>
+          <Feather name="lock" size={16} color="white" />
+        </View>
         <View style={styles.header}>
           <Text style={styles.bodytitle}>Okyanus Ayı</Text>
         </View>
@@ -33,6 +37,7 @@ const SleepBodyCard = () => {
           </TouchableOpacity>
         </View>
       </View>
+    
     </View>
   );
 };
@@ -101,6 +106,17 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     color: "#000",
     fontFamily: "Montserrat_600SemiBold",
+  },
+  icon: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    width: 30,
+    height: 30,
+    position: "absolute",
+    borderRadius: 50,
+    top: 10,
+    left: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
