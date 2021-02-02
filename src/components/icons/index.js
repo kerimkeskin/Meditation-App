@@ -8,6 +8,9 @@ import AnxiousIcon from "./Anxious-Icon";
 import SleepIcon_Cat from "./Sleep-Icon_Cat";
 import KidsIcon from "./Kids-Icon";
 import FavoriteIcon from "./Favorite-Icon";
+import BackwardIcon from "./Backward-Icon";
+import ForwardIcon from "./Forward-Icon";
+import PlayButton from "./PlayButton";
 
 export {
   HomeIcon,
@@ -20,4 +23,7 @@ export {
   SleepIcon_Cat,
   AnxiousIcon,
   AllIcon,
+  BackwardIcon,
+  ForwardIcon,
+  PlayButton,
 };

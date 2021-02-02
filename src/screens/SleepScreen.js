@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   bodycard: {
     width: Width,
     position: "absolute",
-    top: Height / 4.88 + Height / 7.5,
+    top: Height / 4.88 + Height / 7,
   },
   MusicCardContainer: {
     position: "absolute",
