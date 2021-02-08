@@ -1,11 +1,13 @@
-import * as React from "react"
-import Svg, { G, Path } from "react-native-svg"
+import * as React from "react";
+import Svg, { G, Path } from "react-native-svg";
+import { TouchableOpacity } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 function SvgComponent(props) {
   return (
     <Svg
       width={110}
-      height={'100%'}
+      height={"100%"}
       viewBox="0 0 110 110"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -15,6 +17,24 @@ function SvgComponent(props) {
         <Path d="M54.524 54.524v54.511C24.422 109.035 0 84.625 0 54.524 0 47.107 1.476 40.037 4.167 33.6v20.924h50.357z" />
         <Path d="M109.047 54.524c0 30.102-24.409 54.511-54.523 54.511V54.524h54.523zM109.047 54.524H54.524V0c30.114 0 54.523 24.41 54.523 54.524zM54.524 0v54.524H4.168V33.6C12.366 13.867 31.838 0 54.524 0z" />
       </G>
+
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={{
+          width: "20%",
+          height: "100%",
+          backgroundColor: "yellow",
+          position: "absolute",
+          // left: 0,
+          // top: 0,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+
+      >
+        <FontAwesome5 name="play" size={24} color={'red'} />
+      </TouchableOpacity>
+
       <Path
         d="M54.524 54.523v43.95c-24.27 0-43.96-19.68-43.96-43.95 0-5.98 1.19-11.68 3.36-16.87v16.87h40.6z"
         fill="#E6E7F2"
@@ -28,7 +48,7 @@ function SvgComponent(props) {
         fill="#E6E7F2"
       />
     </Svg>
-  )
+  );
 }
 
-export default SvgComponent
+export default SvgComponent;

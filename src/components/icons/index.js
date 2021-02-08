@@ -11,6 +11,8 @@ import FavoriteIcon from "./Favorite-Icon";
 import BackwardIcon from "./Backward-Icon";
 import ForwardIcon from "./Forward-Icon";
 import PlayButton from "./PlayButton";
+import CancelIcon from "./Cancel-Icon";
+import DownloadIcon from "./Download-Icon";
 
 export {
   HomeIcon,
@@ -26,4 +28,6 @@ export {
   BackwardIcon,
   ForwardIcon,
   PlayButton,
+  CancelIcon,
+  DownloadIcon,
 };

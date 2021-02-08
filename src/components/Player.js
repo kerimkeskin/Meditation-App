@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
   playerbox: {
     width: "90%",
     height: "60%",
-    backgroundColor: "purple",
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
@@ -45,7 +44,6 @@ const styles = StyleSheet.create({
   icon: {
     width: "100%",
     height: "100%",
-
     position: "absolute",
     left: 0,
     top: 0,
